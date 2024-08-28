@@ -9,21 +9,21 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3333/videos
+GET http://localhost:3333/videos?search=
 
 
 ###
 
-PUT http://localhost:3333/videos/9e2c91b5-d91d-4b01-b347-1e1cc981af11
+PUT http://localhost:3333/videos/d88ead7b-c595-43b0-9700-362a7a623ac0
 Content-Type: application/json
 
 {
-  "title": "mp4 2",
+  "title": "Video 2",
   "description": "Description 2",
   "url": "https://www.youtube.com/watch?v=1"
 }
 
 ###
 
-DELETE http://localhost:3333/videos/9e2c91b5-d91d-4b01-b347-1e1cc981af11
+DELETE http://localhost:3333/videos/ca2d1cc9-9830-4e45-bedd-ba3171457b90
 Content-Type: application/json
