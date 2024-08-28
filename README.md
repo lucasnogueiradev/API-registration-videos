@@ -5,6 +5,11 @@
 **Descrição:**
 VideoManager é uma API RESTful desenvolvida em Node.js com Fastify para o gerenciamento de vídeos. A API permite criar, recuperar e atualizar informações sobre vídeos, utilizando PostgreSQL como banco de dados.
 
+URL de Produção
+A API está disponível em produção no seguinte endereço:
+
+https://api-registration-videos.onrender.com/
+
 ## Funcionalidades
 
 - **POST /videos**: Adiciona um novo vídeo.
@@ -32,4 +37,3 @@ VideoManager é uma API RESTful desenvolvida em Node.js com Fastify para o geren
    ```bash
    git clone https://github.com/usuario/VideoManager.git
    cd VideoManager
-   ```
