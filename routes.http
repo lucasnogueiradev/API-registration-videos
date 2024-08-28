@@ -1,0 +1,29 @@
+POST http://localhost:3333/videos
+Content-Type: application/json
+
+{
+  "title": "video 1",
+  "description": "Description 1",
+  "url": "https://www.youtube.com/watch?v=1"
+}
+
+###
+
+GET http://localhost:3333/videos
+
+
+###
+
+PUT http://localhost:3333/videos/9e2c91b5-d91d-4b01-b347-1e1cc981af11
+Content-Type: application/json
+
+{
+  "title": "mp4 2",
+  "description": "Description 2",
+  "url": "https://www.youtube.com/watch?v=1"
+}
+
+###
+
+DELETE http://localhost:3333/videos/9e2c91b5-d91d-4b01-b347-1e1cc981af11
+Content-Type: application/json
