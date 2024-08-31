@@ -1,15 +1,19 @@
-POST http://localhost:3333/videos
+
+
+POST http://api-registration-videos.onrender.com/videos
 Content-Type: application/json
 
 {
   "title": "video 1",
-  "description": "Description 1",
-  "url": "https://www.youtube.com/watch?v=1"
+  "description": "Description 8",
+  "url": "https://www.youtube.com/embed/glxzwRgXZGM"
 }
+
 
 ###
 
-GET http://localhost:3333/videos?search=
+
+GET http://api-registration-videos.onrender.com/videos
 
 
 ###
@@ -25,5 +29,28 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3333/videos/ca2d1cc9-9830-4e45-bedd-ba3171457b90
+DELETE http://api-registration-videos.onrender.com/videos/4dd2d94d-856c-4c23-b109-d732ad4555ca
 Content-Type: application/json
+
+
+###
+
+
+POST http://localhost:3333/notes
+Content-Type: application/json
+
+{
+  "title": "IPASS",
+  "description": "E uma plataforma na nuvem de low code que simplifica a integracao entre aplicacoes web.",
+  "url": "https://www.youtube.com/embed/glxzwRgXZGM",
+  "date": "2024-08-31T14:52:00.000Z"
+}
+
+
+###
+
+
+GET http://localhost:3333/notes
+
+
+###

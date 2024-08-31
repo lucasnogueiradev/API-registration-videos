@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 
 export class DatabaseMemory {
   #videos = new Map();
+  #notes = new Map();
 
   list(search) {
     return Array.from(this.#videos.entries())
@@ -32,5 +33,28 @@ export class DatabaseMemory {
 
   delete(id) {
     this.#videos.delete(id);
+  }
+
+  listNotes(search) {
+    return Array.from(this.#notes.entries())
+      .map((notesArray) => {
+        const id = notesArray[0];
+        const data = notesArray[1];
+        return {
+          id,
+          ...data,
+        };
+      })
+      .filter((note) => {
+        if (search) {
+          return note.title.includes(search);
+        }
+        return true;
+      });
+  }
+
+  createNotes(notes) {
+    const notesId = randomUUID();
+    this.#notes.set(notesId, notes);
   }
 }

@@ -1,8 +1,10 @@
 import { fastify } from "fastify";
 import { DatabasePostgres } from "./database-postgres.js";
+// import { DatabaseMemory } from "./database-memory.js";
 
 const server = fastify();
 const database = new DatabasePostgres();
+// const database = new DatabaseMemory();
 
 server.get("/videos", async (req) => {
   const search = req.query.search;
@@ -52,7 +54,7 @@ server.delete("/videos/:id", async (req, reply) => {
 server.listen(
   {
     host: "0.0.0.0",
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 3333,
   },
   (err, address) => {
     if (err) {
@@ -62,3 +64,28 @@ server.listen(
     console.log(`Server listening at ${address}`);
   }
 );
+
+// NOTES
+
+server.get("/notes", async (req) => {
+  const search = req.query.search;
+  const notes = await database.listNotes(search);
+
+  console.log("search", search);
+
+  return notes;
+});
+
+server.post("/notes", async (req, reply) => {
+  const { title, description, date } = req.body;
+
+  await database.createNotes({
+    title,
+    description,
+    date,
+  });
+
+  console.log(database.list());
+
+  return reply.status(201).send();
+});

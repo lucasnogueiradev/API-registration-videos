@@ -41,4 +41,25 @@ export class DatabasePostgres {
     `;
     console.log("Video deleted.");
   }
+
+  async ListNotes(search = "") {
+    let notes;
+    if (search) {
+      notes = await sql`SELECT * FROM notes WHERE title ILIKE "%${search}%"`;
+    } else {
+      notes = await sql`SELECT * FROM notes`;
+    }
+    return notes;
+  }
+
+  async createNotes(notes) {
+    console.log("notes", notes);
+    const notesId = randomUUID();
+    const { title, description, date } = notes;
+    await sql`
+      INSERT INTO videos (id, title, description, date)
+      VALUES (${notesId}, ${title}, ${description}, ${date})
+    `;
+    console.log("Notes created.");
+  }
 }
