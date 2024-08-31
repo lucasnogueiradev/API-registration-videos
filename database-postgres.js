@@ -42,7 +42,7 @@ export class DatabasePostgres {
     console.log("Video deleted.");
   }
 
-  async ListNotes(search = "") {
+  async listNotes(search = "") {
     let notes;
     if (search) {
       notes = await sql`SELECT * FROM notes WHERE title ILIKE "%${search}%"`;
