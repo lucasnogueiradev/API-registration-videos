@@ -57,7 +57,7 @@ export class DatabasePostgres {
     const notesId = randomUUID();
     const { title, description, date } = notes;
     await sql`
-      INSERT INTO videos (id, title, description, date)
+      INSERT INTO notes (id, title, description, date)
       VALUES (${notesId}, ${title}, ${description}, ${date})
     `;
     console.log("Notes created.");
