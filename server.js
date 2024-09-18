@@ -65,6 +65,35 @@ server.listen(
   }
 );
 
+app.post("/generate-pdf", async (req, res) => {
+  const { content } = req.body;
+
+  if (!content) {
+    return res.status(400).send("No content provided");
+  }
+
+  try {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.setContent(content);
+    const pdfBuffer = await page.pdf();
+
+    await browser.close();
+
+    res.set({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": 'attachment; filename="document.pdf"',
+    });
+
+    res.send(pdfBuffer);
+  } catch (error) {
+    res.status(500).send("Error generating PDF");
+  }
+});
+
+app.get("/empty-array", (req, res) => {
+  res.json([]); // Retorna um array vazio
+});
 // NOTES
 
 server.get("/notes", async (req) => {
