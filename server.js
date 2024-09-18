@@ -65,7 +65,7 @@ server.listen(
   }
 );
 
-app.post("/generate-pdf", async (req, res) => {
+server.post("/generate-pdf", async (req, res) => {
   const { content } = req.body;
 
   if (!content) {
@@ -91,7 +91,7 @@ app.post("/generate-pdf", async (req, res) => {
   }
 });
 
-app.get("/empty-array", (req, res) => {
+server.get("/empty-array", (req, res) => {
   res.json([]); // Retorna um array vazio
 });
 // NOTES
